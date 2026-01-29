@@ -7,7 +7,7 @@ import {
 import { DefaultConfig } from "./_LayoutConfig";
 
 const LAYOUT_CONFIG_KEY =
-  import.meta.env.VITE_APP_BASE_LAYOUT_CONFIG_KEY || "LayoutConfig";
+  process.env.REACT_APP_BASE_LAYOUT_CONFIG_KEY || "LayoutConfig";
 
 const getLayoutFromLocalStorage = (): ILayout => {
   const ls = localStorage.getItem(LAYOUT_CONFIG_KEY);

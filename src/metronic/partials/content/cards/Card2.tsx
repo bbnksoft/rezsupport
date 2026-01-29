@@ -1,9 +1,16 @@
 
 import {FC} from 'react'
 import {Link} from 'react-router-dom'
-import {IconUserModel} from '../../../../app/modules/profile/ProfileModels'
-import {UsersList} from '../../../../app/modules/profile/components/UsersList'
 import {toAbsoluteUrl} from '../../../helpers'
+
+// Icon user model type definition
+export interface IconUserModel {
+  name: string
+  avatar: string
+}
+
+// Stub UsersList component
+const UsersList: FC<{users?: Array<IconUserModel>}> = () => null
 
 type Props = {
   icon: string
