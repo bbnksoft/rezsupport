@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface Module {
   id: string;
@@ -12,15 +12,19 @@ interface HeaderProps {
   onMobileMenuToggle: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ activeModule, onModuleChange, onMobileMenuToggle }) => {
+const Header: React.FC<HeaderProps> = ({
+  activeModule,
+  onModuleChange,
+  onMobileMenuToggle,
+}) => {
   const modules: Module[] = [
-    { id: 'dashboard', label: 'Dashboard', icon: '🏠' },
-    { id: 'booking', label: 'Booking', icon: '📋' },
-    { id: 'inventory', label: 'Inventory', icon: '📦' },
-    { id: 'participants', label: 'Participants', icon: '👥' },
-    { id: 'operations', label: 'Operations', icon: '⚙️' },
-    { id: 'admin', label: 'Admin', icon: '🔧' },
-    { id: 'reports', label: 'Reports', icon: '📊' }
+    { id: "dashboard", label: "Dashboard", icon: "🏠" },
+    { id: "booking", label: "Booking", icon: "📋" },
+    { id: "inventory", label: "Inventory", icon: "📦" },
+    { id: "participants", label: "Participants", icon: "👥" },
+    { id: "operations", label: "Operations", icon: "⚙️" },
+    { id: "admin", label: "Admin", icon: "🔧" },
+    { id: "reports", label: "Reports", icon: "📊" },
   ];
 
   return (
@@ -34,10 +38,10 @@ const Header: React.FC<HeaderProps> = ({ activeModule, onModuleChange, onMobileM
       </div>
 
       <nav className="main-modules">
-        {modules.map(module => (
+        {modules.map((module) => (
           <a
             key={module.id}
-            className={`module-link ${activeModule === module.id ? 'active' : ''}`}
+            className={`module-link ${activeModule === module.id ? "active" : ""}`}
             onClick={() => onModuleChange(module.id)}
           >
             <span>{module.icon}</span>

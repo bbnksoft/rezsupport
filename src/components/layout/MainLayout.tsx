@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Header from './Header';
-import Sidebar from './Sidebar';
+import React, { useState } from "react";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -10,12 +10,12 @@ interface MainLayoutProps {
   onPageChange: (page: string) => void;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ 
-  children, 
-  activeModule, 
+const MainLayout: React.FC<MainLayoutProps> = ({
+  children,
+  activeModule,
   activePage,
   onModuleChange,
-  onPageChange 
+  onPageChange,
 }) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,7 +27,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         onModuleChange={onModuleChange}
         onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
       />
-      
+
       <div className="layout-body">
         <Sidebar
           collapsed={sidebarCollapsed}
@@ -38,9 +38,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
           onPageChange={onPageChange}
         />
 
-        <main className="main-content">
-          {children}
-        </main>
+        <main className="main-content">{children}</main>
       </div>
     </div>
   );

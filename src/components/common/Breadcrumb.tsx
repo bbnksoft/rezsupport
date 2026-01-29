@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface BreadcrumbItem {
   label: string;
@@ -19,7 +19,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
           ) : (
             <span>{item.label}</span>
           )}
-          {index < items.length - 1 && ' / '}
+          {index < items.length - 1 && " / "}
         </span>
       ))}
     </nav>

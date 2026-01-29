@@ -25,25 +25,25 @@
 
 // export default App;
 
-import React, { useState } from 'react';
-import MainLayout from './components/layout/MainLayout';
-import ShipsList from './components/inventory/ShipsList';
-import DeckManagement from './components/inventory/DeckManagement';
-import CabinManagement from './components/inventory/CabinManagement';
-import { Ship } from './types/ship.types';
-import { Deck } from './types/deck.types';
-import './styles/custom.scss';
+import React, { useState } from "react";
+import MainLayout from "./components/layout/MainLayout";
+import ShipsList from "./components/inventory/ShipsList";
+import DeckManagement from "./components/inventory/DeckManagement";
+import CabinManagement from "./components/inventory/CabinManagement";
+import { Ship } from "./types/ship.types";
+import { Deck } from "./types/deck.types";
+import "./styles/custom.scss";
 
 const App: React.FC = () => {
-  const [activeModule, setActiveModule] = useState('inventory');
-  const [activePage, setActivePage] = useState('ships-list');
+  const [activeModule, setActiveModule] = useState("inventory");
+  const [activePage, setActivePage] = useState("ships-list");
   const [selectedShip, setSelectedShip] = useState<Ship | null>(null);
   const [selectedDeck, setSelectedDeck] = useState<Deck | null>(null);
 
   const handleModuleChange = (moduleId: string) => {
     setActiveModule(moduleId);
-    if (moduleId === 'inventory') {
-      setActivePage('ships-list');
+    if (moduleId === "inventory") {
+      setActivePage("ships-list");
     }
   };
 
@@ -61,14 +61,36 @@ const App: React.FC = () => {
 
   const renderPage = () => {
     switch (activePage) {
-      case 'ships-list':
-        return <ShipsList onShipSelect={handleShipSelect} onPageChange={handlePageChange} />;
-      case 'deck-management':
-        return <DeckManagement ship={selectedShip} onPageChange={handlePageChange} onDeckSelect={handleDeckSelect} />;
-      case 'cabin-management':
-        return <CabinManagement ship={selectedShip} deck={selectedDeck} onPageChange={handlePageChange} />;
+      case "ships-list":
+        return (
+          <ShipsList
+            onShipSelect={handleShipSelect}
+            onPageChange={handlePageChange}
+          />
+        );
+      case "deck-management":
+        return (
+          <DeckManagement
+            ship={selectedShip}
+            onPageChange={handlePageChange}
+            onDeckSelect={handleDeckSelect}
+          />
+        );
+      case "cabin-management":
+        return (
+          <CabinManagement
+            ship={selectedShip}
+            deck={selectedDeck}
+            onPageChange={handlePageChange}
+          />
+        );
       default:
-        return <ShipsList onShipSelect={handleShipSelect} onPageChange={handlePageChange} />;
+        return (
+          <ShipsList
+            onShipSelect={handleShipSelect}
+            onPageChange={handlePageChange}
+          />
+        );
     }
   };
 
